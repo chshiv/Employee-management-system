@@ -1,0 +1,25 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./employee-management-system/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./employee-management-system-ui/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  database:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: shivchoudhary123
+      MYSQL_DATABASE: root
+      #MYSQL_USER: db_user
+      #MYSQL_PASSWORD: db_password
+    ports:
+      - "3307:3306"
